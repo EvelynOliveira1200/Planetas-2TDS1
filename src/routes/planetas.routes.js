@@ -19,19 +19,29 @@ let planetas = [
         return res.status(200).send(planetas)
     })
 
-// Rota para criar nova planetas
+// Rota para cadastrar um novo planetas
 planetasRoutes.post("/", (req, res) => {
-        const { titulo, genero, emCartaz } = req.body
+        const { nome, temperatura, agua, atm} = req.body
 
-        const novoplaneta = {
-            id: Number(Math.floor(Math.random() * 99) + 1),
-            titulo,
-            genero,
-            emCartaz,
+        if(!nome || !temperatura || !agua) {
+            return res.status(400).send({message: "Os campos nome, temperatura e água são obrigatórios!"})
         }
 
-        planetas.push(novoplaneta)
-        return res.status(201).send(planetas)
+        //Validação para existência de água
+        if(agua != "sim" && agua != "não") {
+            return res.status(400).send({message: "Digite 'sim' ou 'não'!"})
+        }
+
+        const novoPlaneta = {
+            id: Number(Math.floor(Math.random() * 999999) + 1),
+            nome,
+            temperatura,
+            agua,
+            atm,
+        }
+
+        planetas.push(novoPlaneta)
+        return res.status(201).send({message:"Planeta cadastrado com sucesso"})
     })
 
 planetasRoutes.get("/:id", (req, res) => {
