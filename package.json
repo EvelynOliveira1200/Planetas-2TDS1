@@ -1,0 +1,17 @@
+{
+  "name": "planetas",
+  "version": "1.0.0",
+  "description": "Projeto da resolução da atividade de Back-End",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "SENAI",
+    "Node.js",
+    "JavaScript",
+    "Back-End"
+  ],
+  "author": "Evelyn Oliveira",
+  "license": "MIT"
+}
